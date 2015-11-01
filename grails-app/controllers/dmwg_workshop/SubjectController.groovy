@@ -2,6 +2,7 @@ package dmwg_workshop
 
 import static org.springframework.http.HttpStatus.*
 import grails.transaction.Transactional
+import grails.plugin.springsecurity.annotation.Secured
 
 @Transactional(readOnly = true)
 class SubjectController {
@@ -17,10 +18,12 @@ class SubjectController {
         respond subject
     }
 
+    @Secured('ROLE_ADMIN')
     def create() {
         respond new Subject(params)
     }
 
+    @Secured('ROLE_ADMIN')
     @Transactional
     def save(Subject subject) {
         if (subject == null) {
@@ -46,10 +49,12 @@ class SubjectController {
         }
     }
 
+    @Secured('ROLE_ADMIN')
     def edit(Subject subject) {
         respond subject
     }
 
+    @Secured('ROLE_ADMIN')
     @Transactional
     def update(Subject subject) {
         if (subject == null) {
