@@ -1,5 +1,7 @@
 package dmwg_workshop
+import grails.rest.*
 
+@Resource(uri='/users')
 class User implements Serializable {
 
 	private static final long serialVersionUID = 1
